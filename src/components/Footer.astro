@@ -1,0 +1,31 @@
+---
+import GithubIcon from "../components/icons/GithubIcon.astro";
+import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
+---
+
+<footer class="bg-[#33595E] text-[#FDF1DD] py-8">
+  <div class="max-w-6xl mx-auto flex flex-col justify-between items-center">
+    <!-- Sección de enlaces sociales arriba -->
+    <div class="flex justify-center space-x-6 mb-4">
+      <a href="https://github.com/ackerT" target="_blank" class="flex items-center text-[#FDF1DD] hover:scale-105 transition-transform duration-300">
+        <GithubIcon className="w-6 h-6 mr-2" />
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/alberto-ulloa-102b90352/" target="_blank" class="flex items-center text-[#FDF1DD] hover:scale-105 transition-transform duration-300">
+        <LinkedInIcon className="w-6 h-6 mr-2" />
+        LinkedIn
+      </a>
+      <!-- Correo con cápsula -->
+      <a href="mailto:jaua372@gmail.com" class="flex items-center text-[#FDF1DD] hover:scale-105 transition-transform duration-300">
+        <span class="px-3 py-1 border-2 border-[#FDF1DD] rounded-full text-sm">
+          jaua372@gmail.com
+        </span>
+      </a>
+    </div>
+
+    <!-- Texto "Powered by" -->
+    <div class="text-center mt-4">
+      <p class="text-sm">Powered by: Acker</p>
+    </div>
+  </div>
+</footer>

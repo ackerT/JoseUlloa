@@ -1,0 +1,19 @@
+---
+// TechItemCard.astro
+const { name, percentage } = Astro.props;
+---
+<div class="flex items-center hover:scale-105 transition-transform duration-300">
+  <!-- Ícono a través del slot con nombre "icon" -->
+  <div class="w-8 h-8 mr-4">
+    <slot name="icon" />
+  </div>
+  <!-- Nombre y barra de progreso -->
+  <div class="flex-grow">
+    <div class="font-bold text-lg">{name}</div>
+    <div class="relative mt-1 h-3 bg-gray-300 rounded-full">
+      <div class="absolute top-0 left-0 h-3 rounded-full bg-[#33595E]" style={`width: ${percentage}%;`}></div>
+    </div>
+  </div>
+  <!-- Porcentaje numérico -->
+  <div class="ml-4 font-bold">{percentage}%</div>
+</div>

@@ -1,0 +1,86 @@
+---
+import Header from '../components/Header.astro';
+import GithubIcon from '../components/icons/GithubIcon.astro';
+import Footer from '../components/Footer.astro'; 
+import ProjectLayout from '../layouts/ProjectLayout.astro';
+
+
+export async function getStaticPaths() {
+  const projectFiles = import.meta.glob('../content/proyectos/*.mdx');
+  const projects = Object.entries(projectFiles).map(([path]) => {
+    const slug = path.split('/').pop()!.replace('.mdx', '');
+    return { params: { slug } };
+  });
+  return projects;
+}
+
+const { slug } = Astro.params;
+const projectImport = await import(`../content/proyectos/${slug}.mdx`);
+const { frontmatter, Content } = projectImport;
+
+---
+<ProjectLayout>
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{frontmatter.title} - Mi Portafolio</title>
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body class=" text-[#373B41]">
+    <main class="max-w-6xl mx-auto mt-12 p-8">
+      <article class="prose lg:prose-xl space-y-6">        
+        <h1 class="text-4xl font-bold text-[#33595E]">{frontmatter.title}</h1>
+        <div class="grid grid-cols-1 gap-6 mt-6">
+          <div class="bg-[#FBF1DC] p-6 rounded-2xl shadow-lg border border-[#33595E] hover:scale-105 transition-transform duration-300">
+            <h2 class="text-2xl font-bold text-[#33595E]">Detalles del Proyecto</h2>
+            <Content />
+            <p class="mt-4">{frontmatter.shortdescription}</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-[#33595E] p-6 rounded-2xl shadow-lg border border-[#33595E] hover:scale-105 transition-transform duration-300">
+              <h2 class="text-2xl font-bold text-white">Tecnologías Utilizadas</h2>
+              <div class="flex flex-wrap gap-2 mt-4">
+                {frontmatter.technologies.map((tech: string) => (
+                  <span class="bg-[#373B41] text-white px-3 py-1 rounded-lg hover:scale-105 transition-transform duration-300">{tech}</span>
+                ))}
+              </div>
+            </div>
+
+            { (frontmatter.frontendRepo || frontmatter.backendRepo || frontmatter.repo) && (
+              <div class="bg-[#373B41] p-6 rounded-2xl shadow-lg text-white border border-[#33595E] hover:scale-105 transition-transform duration-300">
+                <h2 class="text-2xl font-bold">Repositorios</h2>
+                <div class="flex gap-4 mt-4">
+                  {frontmatter.frontendRepo && (
+                    <a href={frontmatter.frontendRepo} class="border border-white text-white px-4 py-2 rounded-full inline-flex items-center hover:scale-105 transition-transform duration-300">
+                      <GithubIcon className="w-5 h-5 mr-2" />
+                      Frontend
+                    </a>
+                  )}
+
+                  {frontmatter.backendRepo && (
+                    <a href={frontmatter.backendRepo} class="border border-white text-white px-4 py-2 rounded-full inline-flex items-center hover:scale-105 transition-transform duration-300">
+                      <GithubIcon className="w-5 h-5 mr-2" />
+                      Backend
+                    </a>
+                  )}
+
+                  {frontmatter.repo && (
+                    <a href={frontmatter.repo} class="border border-white text-white px-4 py-2 rounded-full inline-flex items-center hover:scale-105 transition-transform duration-300">
+                      <GithubIcon className="w-5 h-5 mr-2" />
+                      Repositorio
+                    </a>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
+</ProjectLayout>

@@ -1,0 +1,28 @@
+---
+import '@fontsource-variable/jetbrains-mono';
+import Header from '../components/Header.astro';
+ 
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title></title>
+	</head>
+	<body>
+		<Header />
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	html{
+		font-family: 'JetBrains Mono Variable', monospace;
+	}
+	body {
+		background: #FDF1DD;
+	}
+</style>

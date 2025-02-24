@@ -1,0 +1,202 @@
+---
+import Layout from "../layouts/Layout.astro";
+import GithubIcon from "../components/icons/GithubIcon.astro";
+import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
+import TechCategoryCard from "../components/TechCategoryCard.astro";
+import TechItemCard from "../components/TechItemCard.astro";
+import HtmlIcon from "../components/icons/HtmlIcon.astro";
+import Css from"../components/icons/Css.astro";
+import ReactIcon from "../components/icons/ReactIcon.astro";
+import JsIcon from "../components/icons/JsIcon.astro";
+import NodeIcon from "../components/icons/NodeIcon.astro";
+import NestIcon from "../components/icons/NestIcon.astro"; 
+import SpringIcon from "../components/icons/SpringIcon.astro";
+import CsharpIcon from "../components/icons/CsharpIcon.astro";
+import MySql from "../components/icons/MySql.astro";
+import SqlServer from "../components/icons/SqlServer.astro";
+import Oracle from "../components/icons/Oracle.astro";
+import TypeOrm from "../components/icons/TypeOrm.astro";
+import Aws from "../components/icons/Aws.astro";
+import Docker from "../components/icons/Docker.astro";
+import Python from "../components/icons/Python.astro";
+import GitIcon from "../components/icons/GitIcon.astro";
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+	<html lang="es" class="scroll-smooth">
+	  <head>
+		<meta charset="UTF-8" />
+		<title>Inicio - Mi Portafolio</title>
+		<link rel="stylesheet" href="/src/styles/global.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style is:inline>
+		  @keyframes spin-slow {
+			0% { transform: rotate(0deg); }
+			100% { transform: rotate(360deg); }
+		  }
+		  .animate-spin-slow {
+			animation: spin-slow 10s linear infinite;
+		  }
+		</style>
+	  </head>
+	  <body class="bg-[#33595E] text-[#FDF1DD] min-h-screen flex flex-col">
+		<main class="flex-grow">
+		  <!-- Sección Hero centrada -->
+		  <section class="min-h-[70vh] flex items-center justify-center p-8">
+			<div class="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between">
+			  <!-- Columna Izquierda: Texto y íconos -->
+			  <div class="w-full md:w-1/2 md:pr-8 text-center md:text-left">
+				<h1 class="text-3xl sm:text-4xl md:text-5xl font-bold">
+				  ¡Hola! Soy <span class="text-[#FBF1DC]">Alberto Ulloa</span>
+				</h1>
+				<h2 class="mt-2 text-xl sm:text-2xl md:text-3xl font-semibold">
+				  Ingeniero en Sistemas y Full Stack Developer
+				</h2>
+				<p class="mt-4 text-lg sm:text-xl leading-relaxed">
+				  Apasionado por crear experiencias digitales elegantes y eficientes. Cuento con sólidos conocimientos en diversas tecnologías y lenguajes de programación.
+				</p>
+				<div class="mt-6 flex flex-wrap justify-center md:justify-start items-center gap-4">
+				  <div class="flex items-center space-x-4">
+					<a href="https://github.com/ackerT" target="_blank" class="flex items-center bg-[#373B41] text-[#FDF1DD] px-5 py-3 rounded-full hover:bg-[#FBF1DC] hover:text-[#33595E] transition-colors">
+					  <GithubIcon className="w-6 h-6 mr-2" />
+					  <span>GitHub</span>
+					</a>
+					<a href="https://www.linkedin.com/in/alberto-ulloa-102b90352/" target="_blank" class="flex items-center bg-[#373B41] text-[#FDF1DD] px-5 py-3 rounded-full hover:bg-[#FBF1DC] hover:text-[#33595E] transition-colors">
+					  <LinkedInIcon className="w-6 h-6 mr-2" />
+					  <span>LinkedIn</span>
+					</a>
+				  </div>
+				</div>
+			  </div>
+	  	  
+			  <!-- Columna Derecha: Foto y etiquetas -->
+			  <div class="w-full md:w-1/2 mt-8 md:mt-0 flex flex-col items-center">
+				<div class="relative">
+				  <img 
+					src="/photo.jpeg" 
+					alt="Foto de Alberto Ulloa" 
+					class="w-48 sm:w-56 md:w-64 h-48 sm:h-56 md:h-64 rounded-full object-cover z-10"
+				  />
+				  <div 
+					class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-56 sm:w-64 md:w-72 h-56 sm:h-64 md:h-72 border-4 border-[#FDF1DD] rounded-full animate-spin-slow"
+				  ></div>
+				</div>
+				<div class="flex justify-center space-x-4 mt-8">
+				  <div class="bg-[#373B41] text-[#FDF1DD] px-3 py-1 rounded-full text-xs sm:text-sm">
+					Full-Stack Developer
+				  </div>
+				  <div class="bg-[#373B41] text-[#FDF1DD] px-3 py-1 rounded-full text-xs sm:text-sm">
+					DBA
+				  </div>
+				  <div class="bg-[#373B41] text-[#FDF1DD] px-3 py-1 rounded-full text-xs sm:text-sm">
+					Gamer Profesional
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </section>
+
+		  <!-- Sección Más sobre mí -->
+		  <section id="mas-sobre-mi" class="max-w-6xl mx-auto p-8">
+			<h2 class="text-4xl font-bold text-center text-[#FBF1DC] mb-8">Más sobre mí</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+			  <!-- Card 1: Etapa Final en Ingeniería -->
+			  <div class="bg-white/30 backdrop-blur-md p-6 rounded-2xl shadow-lg border border-[#373B41]">
+				<h3 class="text-2xl font-bold text-[#FBF1DC] mb-2">Etapa Final en Ingeniería</h3>
+				<p class="text-lg text-[#FDF1DD]">
+					Me interesa el desarrollo Full Stack, con una especial inclinación hacia el Backend. He trabajado en varios proyectos que me han permitido fortalecer mis habilidades en distintas tecnologías. Actualmente, estoy en la etapa final de mi carrera en Ingeniería en Sistemas, lo que me ha permitido seguir perfeccionando mis conocimientos.				</p>
+			  </div>
+			  <!-- Card 2: Videojuegos y Trabajo en Equipo -->
+			  <div class="bg-white/30 backdrop-blur-md p-6 rounded-2xl shadow-lg border border-[#373B41]">
+				<h3 class="text-2xl font-bold text-[#FBF1DC] mb-2">Videojuegos y Trabajo en Equipo</h3>
+				<p class="text-lg text-[#FDF1DD]">
+					Me apasionan los videojuegos. Fui jugador profesional de COD Mobile, lo que me enseñó a trabajar en equipo, a escuchar a los demás y a tomar decisiones bajo presión.
+				</p>
+			  </div>
+			  <!-- Card 3: Más Allá de la Tecnología -->
+			  <div class="bg-white/30 backdrop-blur-md p-6 rounded-2xl shadow-lg border border-[#373B41] md:col-span-2">
+				<h3 class="text-2xl font-bold text-[#FBF1DC] mb-2">Más Allá de la Tecnología</h3>
+				<p class="text-lg text-[#FDF1DD]">
+					Soy una persona que siente un gran interés por la veterinaria y el cuidado de los animales. Desde pequeño he sentido una conexión especial con ellos, lo que me motiva a aprender más sobre su bienestar. Me llena de satisfacción poder contribuir, de alguna manera, a su salud y calidad de vida, ya sea a través de atención directa o apoyando en su protección.				</p>
+			  </div>
+			</div>
+		  </section>
+
+		  <!-- Sección Tecnologías que manejo usando componentes -->
+		  <section id="tecnologias" class="max-w-6xl mx-auto p-8">
+			<h2 class="text-4xl font-bold text-center text-[#FBF1DC] mb-8">Tecnologías que manejo</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+			 
+				<!-- Card Frontend -->
+			  <TechCategoryCard title="Frontend">
+					<TechItemCard name="HTML" percentage={85}>
+						<HtmlIcon slot="icon" className="w-8 h-8 text-[#373B41] "  />
+					</TechItemCard> 
+					<TechItemCard name="CSS" percentage={70}>
+						<Css slot="icon" className="w-8 h-8 text-[#373B41] "  />
+					</TechItemCard>
+					<TechItemCard name="JavaScript" percentage={85}>
+						<JsIcon slot="icon" className="w-8 h-8 text-[#373B41] "  />
+					</TechItemCard>
+					<TechItemCard name="React" percentage={70}>
+						<ReactIcon slot="icon" className="w-8 h-8 text-[#373B41] "  />
+					</TechItemCard>
+			  </TechCategoryCard>
+
+			  <!-- Card Backend -->
+			  <TechCategoryCard title="Backend">
+				<TechItemCard name="Node" percentage={85}>
+					<NodeIcon slot="icon" className="w-8 h-8 text-[#373B41] "  />
+				 </TechItemCard>
+				<TechItemCard name="NestJS" percentage={90}>
+					<NestIcon slot="icon" className="w-8 h-8 text-[#373B41] " />
+				</TechItemCard>
+				<TechItemCard name="Spring Boot" percentage={65}>
+					<SpringIcon slot="icon" className="w-8 h-8 text-[#373B41] " />
+				</TechItemCard>
+				<TechItemCard name="C#" percentage={60}>
+					<CsharpIcon slot="icon" className="w-8 h-8 text-[#373B41] " />
+				</TechItemCard>
+				
+			  </TechCategoryCard>
+
+			 <!-- Card Base de datos -->
+			  <TechCategoryCard title="Base de Datos">
+					<TechItemCard name="MySQL" percentage={85}>
+						<MySql slot="icon" className="w-8 h-8 text-[#373B41] " />
+					</TechItemCard>
+					<TechItemCard name="SQL Server" percentage={80}>
+						<SqlServer slot="icon" className="w-8 h-8 text-[#373B41] " />
+					</TechItemCard>
+					<TechItemCard name="Oracle" percentage={80}>
+						<Oracle slot="icon" className="w-8 h-8 text-[#373B41] " />
+					</TechItemCard>
+					<TechItemCard name="TypeORM" percentage={85}>
+						<TypeOrm slot="icon" className="w-8 h-8 text-[#373B41]" />
+					</TechItemCard>
+			  </TechCategoryCard>
+
+			  <!-- Card Otros -->
+			  <TechCategoryCard title="Otros">
+				  <TechItemCard name="AWS" percentage={60}>
+					  <Aws slot="icon" className="w-8 h-8 text-[#373B41]" />
+				  </TechItemCard>
+				  <TechItemCard name="Docker" percentage={50}>
+					  <Docker slot="icon" className="w-8 h-8 text-[#373B41]" />
+				  </TechItemCard>
+				  <TechItemCard name="Git" percentage={70}>
+					  <GitIcon slot="icon" className="w-8 h-8 text-[#373B41]" />
+				  </TechItemCard>
+				  <TechItemCard name="Python" percentage={65}>
+					<Python slot="icon" className="w-8 h-8 text-[#373B41] " />
+				</TechItemCard>
+			  </TechCategoryCard>
+			</div>
+		  </section>
+
+		</main>
+		<Footer />
+	  </body>
+	</html>
+</Layout>

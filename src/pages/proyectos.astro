@@ -1,0 +1,36 @@
+---
+import Header from '../components/Header.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Footer from '../components/Footer.astro';
+import ProjectLayout from '../layouts/ProjectLayout.astro';
+
+// Importa todos los archivos MDX de la colección "proyectos"
+const projectFiles = Object.entries(import.meta.glob('../content/proyectos/*.mdx', { eager: true }));
+const projects = projectFiles.map(([path, module]) => {
+  const { frontmatter } = module as any;
+  const slug = path.split('/').pop()!.replace('.mdx', '');
+  return { slug, shortDescription: frontmatter.shortDescription, title: frontmatter.title };
+});
+---
+
+<ProjectLayout>
+  <html lang="es">
+    <head>
+      <meta charset="UTF-8" />
+      <title>Proyectos - Mi Portafolio</title>
+      <link rel="stylesheet" href="/src/styles/global.css" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body class="text-[#373B41]">
+      <main class="max-w-6xl mx-auto mt-12 p-8">
+        <h2 class="text-4xl font-bold text-center text-[#33595E] mb-8">Proyectos</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {projects.map(project => (
+            <ProjectCard title={project.title} shortDescription={project.shortDescription} slug={project.slug} />
+          ))}
+        </div>
+      </main>
+      <Footer />
+    </body>
+  </html>
+</ProjectLayout>
