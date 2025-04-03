@@ -4,7 +4,6 @@ import GithubIcon from '../components/icons/GithubIcon.astro';
 import Footer from '../components/Footer.astro'; 
 import ProjectLayout from '../layouts/ProjectLayout.astro';
 
-
 export async function getStaticPaths() {
   const projectFiles = import.meta.glob('../content/proyectos/*.mdx');
   const projects = Object.entries(projectFiles).map(([path]) => {
@@ -17,10 +16,8 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 const projectImport = await import(`../content/proyectos/${slug}.mdx`);
 const { frontmatter, Content } = projectImport;
-
 ---
 <ProjectLayout>
-
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -28,10 +25,19 @@ const { frontmatter, Content } = projectImport;
     <link rel="stylesheet" href="/src/styles/global.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
-  <body class=" text-[#373B41]">
+  <body class="text-[#373B41]">
     <main class="max-w-6xl mx-auto mt-12 p-8">
-      <article class="prose lg:prose-xl space-y-6">        
+      <article class="prose lg:prose-xl space-y-6">
         <h1 class="text-4xl font-bold text-[#33595E]">{frontmatter.title}</h1>
+        
+        {frontmatter.images && frontmatter.images.length > 0 && (
+          <div class="my-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+            {frontmatter.images.map((img: string, index: number) => (
+              <img key={index} src={img} alt={`${frontmatter.title} - imagen ${index + 1}`} class="w-full rounded-lg shadow-lg" />
+            ))}
+          </div>
+        )}
+        
         <div class="grid grid-cols-1 gap-6 mt-6">
           <div class="bg-[#FBF1DC] p-6 rounded-2xl shadow-lg border border-[#33595E] hover:scale-105 transition-transform duration-300">
             <h2 class="text-2xl font-bold text-[#33595E]">Detalles del Proyecto</h2>
@@ -49,30 +55,16 @@ const { frontmatter, Content } = projectImport;
               </div>
             </div>
 
-            { (frontmatter.frontendRepo || frontmatter.backendRepo || frontmatter.repo) && (
+            {frontmatter.repos && frontmatter.repos.length > 0 && (
               <div class="bg-[#373B41] p-6 rounded-2xl shadow-lg text-white border border-[#33595E] hover:scale-105 transition-transform duration-300">
                 <h2 class="text-2xl font-bold">Repositorios</h2>
                 <div class="flex gap-4 mt-4">
-                  {frontmatter.frontendRepo && (
-                    <a href={frontmatter.frontendRepo} class="border border-white text-white px-4 py-2 rounded-full inline-flex items-center hover:scale-105 transition-transform duration-300">
+                  {frontmatter.repos.map((repo: { label: string; url: string }) => (
+                    <a href={repo.url} class="border border-white text-white px-4 py-2 rounded-full inline-flex items-center hover:scale-105 transition-transform duration-300">
                       <GithubIcon className="w-5 h-5 mr-2" />
-                      Frontend
+                      {repo.label}
                     </a>
-                  )}
-
-                  {frontmatter.backendRepo && (
-                    <a href={frontmatter.backendRepo} class="border border-white text-white px-4 py-2 rounded-full inline-flex items-center hover:scale-105 transition-transform duration-300">
-                      <GithubIcon className="w-5 h-5 mr-2" />
-                      Backend
-                    </a>
-                  )}
-
-                  {frontmatter.repo && (
-                    <a href={frontmatter.repo} class="border border-white text-white px-4 py-2 rounded-full inline-flex items-center hover:scale-105 transition-transform duration-300">
-                      <GithubIcon className="w-5 h-5 mr-2" />
-                      Repositorio
-                    </a>
-                  )}
+                  ))}
                 </div>
               </div>
             )}
