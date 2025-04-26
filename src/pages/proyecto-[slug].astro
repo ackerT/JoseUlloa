@@ -58,7 +58,7 @@ const { frontmatter, Content } = projectImport;
             {frontmatter.repos && frontmatter.repos.length > 0 && (
               <div class="bg-[#373B41] p-6 rounded-2xl shadow-lg text-white border border-[#33595E] hover:scale-105 transition-transform duration-300">
                 <h2 class="text-2xl font-bold">Repositorios</h2>
-                <div class="flex gap-4 mt-4">
+                <div class="grid gap-4 mt-4">
                   {frontmatter.repos.map((repo: { label: string; url: string }) => (
                     <a href={repo.url} class="border border-white text-white px-4 py-2 rounded-full inline-flex items-center hover:scale-105 transition-transform duration-300">
                       <GithubIcon className="w-5 h-5 mr-2" />

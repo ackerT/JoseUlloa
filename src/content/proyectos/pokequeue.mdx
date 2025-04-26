@@ -1,0 +1,87 @@
+---
+title: "Generador de Reportes V2"
+shortDescription: |
+  Mejora y enriquecimiento de la aplicación generadora de reportes de Pokémon con PokeAPI, muestreo aleatorio y gestión avanzada en Azure.
+technologies:
+  - "Azure"
+  - "Next.js"
+  - "FastAPI"
+  - "Python"
+  - "Azure Function Apps"
+  - "Azure Blob Storage"
+  - "Azure Queue Storage"
+  - "Azure Webapss"
+  - "PokeAPI"
+
+repos:
+  - label: "Frontend (UI)"
+    url: "https://github.com/ackerT/poke.ui.git"
+  - label: "Backend (API)"
+    url: "https://github.com/ackerT/poke.api.git"
+  - label: "Infraestructura"
+    url: "https://github.com/ackerT/poke.terraform.git"
+  - label: "Scripts SQL"
+    url: "https://github.com/ackerT/poke.sql.git"
+  - label: "Function App"
+    url: "https://github.com/ackerT/poke.function.git"
+---
+
+**Proyecto:**  
+Esta versión V2 del Generador de Reportes consistió en mejorar y enriquecer la aplicación web existente para obtener informes más detallados de Pokémon. Para ello, se integró la PokeAPI y se añadieron nuevas funcionalidades como el muestreo aleatorio de registros y la eliminación completa de reportes, tanto en la base de datos como en el almacenamiento CSV en Azure.  
+Toda la solución fue desplegada en Microsoft Azure utilizando una arquitectura robusta y procesamiento asíncrono para optimizar el flujo de trabajo.  
+
+<br /><br />
+
+- **Link Frontend (UI):** https://ui-pokequeue-dev-ex.azurewebsites.net  
+- **Link Backend (API):** https://api-pokequeue-dev-ex.azurewebsites.net
+
+<br /><br />
+
+**Mi rol:**  
+
+Desempeñé el rol de desarrollador full-stack, encargándome de implementar nuevas funciones y mejorar el sistema existente:
+
+- **Eliminación completa de reportes:**  
+  Desarrollé la funcionalidad para eliminar registros tanto en la base de datos como en el Azure Blob Storage, asegurando una limpieza total de los reportes.
+
+- **Enriquecimiento de reportes:**  
+  Añadí más datos en los reportes CSV, como estadísticas y características relevantes de los Pokémon, realizando integraciones directas con la PokeAPI.
+
+- **Muestreo aleatorio de datos:**  
+  Implementé la posibilidad de crear reportes definiendo cuántos Pokémon incluir, seleccionándolos aleatoriamente, dando mayor flexibilidad al usuario.
+
+- **Interfaz de usuario (Frontend en Next.js):**  
+  Añadí nuevos componentes reutilizables como modales de confirmación y labels estéticos que mejoran la usabilidad y apariencia general del sitio.
+
+- **API backend (FastAPI en Python):**  
+  Desarrollé nuevos endpoints respetando la estructura original del proyecto, mejorando así la comunicación entre frontend y base de datos.
+
+- **Procesamiento asíncrono (Azure Function App):**  
+  Mejoré la Function App existente añadiendo la funcionalidad de enriquecimiento de datos y muestreo aleatorio, haciendo el procesamiento más rápido y eficiente.
+
+<br /><br />
+
+**Resultados:**  
+
+Con la implementación de la versión V2, logramos:
+
+- Reportes más completos y personalizados gracias al uso de la PokeAPI.  
+- Control total sobre los reportes: creación, enriquecimiento, muestreo aleatorio y eliminación de registros/archivos.  
+- Una arquitectura desplegada en Azure capaz de escalar y procesar solicitudes de forma asíncrona para un flujo de trabajo más fluido y eficiente.  
+
+Este proyecto representó un avance importante en nuestro conocimiento sobre el mantenimiento y optimización de aplicaciones existentes, el uso avanzado de servicios en la nube de Azure, y el trabajo efectivo con arquitecturas serverless modernas.
+
+<br /><br />
+
+**Desafíos encontrados y cómo los resolví:**  
+
+Durante el desarrollo de este proyecto me enfrenté a varios retos técnicos que requirieron investigación y esfuerzo para superarlos:
+
+- **Instalación de `pyenv` y creación de entornos virtuales:**  
+  Tuve problemas al intentar instalar `pyenv` en mi entorno, lo cual impedía manejar versiones específicas de Python. Pude resolverlo consultando la documentación oficial y adaptando los pasos a mi sistema operativo.
+
+- **Creación y despliegue de Function App en Windows:**  
+  Configurar correctamente la Azure Function App desde un entorno Windows fue un reto, ya que varias herramientas tenían problemas de compatibilidad. Seguí paso a paso la documentación de Microsoft para Function Apps y logré desplegar correctamente la aplicación.
+
+- **Requisitos y compatibilidades del sistema:**  
+  Al integrar nuevas funciones y tecnologías, fue necesario investigar a fondo sobre dependencias, compatibilidad entre librerías y arquitectura de Azure, lo que amplió significativamente mi comprensión del entorno en la nube y su potencial para aplicaciones escalables y eficientes.
